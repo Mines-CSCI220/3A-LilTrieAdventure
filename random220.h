@@ -16,6 +16,7 @@
 #ifndef RANDOM220_H
 #define RANDOM220_H
 
+#include <cstddef>  /* for size_t */
 #include <vector>
 
 /***
@@ -44,12 +45,12 @@ bool coinflip( );
  * can specify a partial shuffling
  */
 template<typename T>
-void fisher_yates( std::vector< T >& v, size_t count = 0)
+void fisher_yates( std::vector< T >& v, std::size_t count = 0)
 {
 	// fisher yates 
-	size_t i=0;
+	std::size_t i=0;
 	do {
-		size_t to = equalikely(i,v.size()-1);
+		std::size_t to = equalikely(i,v.size()-1);
 		std::swap( v[i], v[to] );
 		--count;
 		++i;
